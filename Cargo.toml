@@ -1,0 +1,84 @@
+[package]
+name = "akey"
+version = "1.0.0"
+edition = "2024"
+authors = ["phumiphat"]
+description = "Minimal macOS menu bar TOTP code generator"
+repository = "https://github.com/phumiphatauk/akey"
+license = "MIT"
+readme = "README.md"
+publish = false
+
+[dependencies]
+hmac = "0.13"
+sha1 = { version = "0.11", default-features = false }
+sha2 = { version = "0.11", default-features = false }
+rpassword = "7.5"
+security-framework = { version = "3.7", default-features = false }
+objc2 = "0.6.4"
+objc2-foundation = { version = "0.3.2", default-features = false, features = [
+    "std",
+    "NSArray",
+    "NSData",
+    "NSDate",
+    "NSDictionary",
+    "NSGeometry",
+    "NSObjCRuntime",
+    "NSNotification",
+    "NSObject",
+    "NSRunLoop",
+    "NSString",
+    "NSTimer",
+    "NSValue",
+] }
+objc2-app-kit = { version = "0.3.2", default-features = false, features = [
+    "std",
+    "NSAlert",
+    "NSAnimation",
+    "NSAnimationContext",
+    "NSApplication",
+    "NSBitmapImageRep",
+    "NSButton",
+    "NSButtonCell",
+    "NSCell",
+    "NSClipView",
+    "NSColor",
+    "NSControl",
+    "NSEvent",
+    "NSFont",
+    "NSFontDescriptor",
+    "NSImage",
+    "NSImageRep",
+    "NSMenu",
+    "NSMenuItem",
+    "NSPasteboard",
+    "NSParagraphStyle",
+    "NSPopover",
+    "NSResponder",
+    "NSSecureTextField",
+    "NSRunningApplication",
+    "NSScreen",
+    "NSScrollView",
+    "NSStatusBar",
+    "NSStatusBarButton",
+    "NSStatusItem",
+    "NSText",
+    "NSTextField",
+    "NSTrackingArea",
+    "NSView",
+    "NSViewController",
+    "NSWindow",
+    "objc2-core-foundation",
+    "objc2-core-graphics",
+    "objc2-quartz-core",
+] }
+objc2-quartz-core = { version = "0.3.2", default-features = false, features = ["std", "CALayer", "CAShapeLayer", "CAAnimation", "CAMediaTiming", "CATransaction", "objc2-core-foundation", "objc2-core-graphics"] }
+objc2-core-foundation = { version = "0.3.2", default-features = false, features = ["std", "CFCGTypes"] }
+objc2-core-graphics = { version = "0.3.2", default-features = false, features = ["std", "CGPath", "CGColor", "CGAffineTransform"] }
+
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1
+strip = true
+panic = "abort"
